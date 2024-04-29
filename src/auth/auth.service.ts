@@ -6,8 +6,8 @@ import { UsersService } from 'src/users/users.service';
 @Injectable()
 export class AuthService {
   constructor(
-    private userService: UsersService,
-    private jwtService: JwtService,
+    private userService: UsersService,  // pegando o service do usuario para verificar se ele e cadastrado ou se tem invalido o email
+    private jwtService: JwtService,       //service do jwt
     private redisCache: CacheService,
   ) {}
 

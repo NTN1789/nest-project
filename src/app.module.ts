@@ -7,22 +7,25 @@ import { TaskModule } from './task/task.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UsersModule } from './users/users.moudle';
 import { AuthModule } from './auth/auth.module';
+import { AppCacheModule } from './cache/cache.module';
 
 @Module({
   imports: [
     TaskModule ,
     UsersModule,
      MongooseModule.forRoot('mongodb://localhost:27017/nest'),
-   //  AuthModule
+    AuthModule,
+    AppCacheModule
     
     ],
   controllers: [AppController],
-  providers: [AppService,
-    {
-      provide: APP_GUARD,
-      useValue: AuthGuard, 
+  providers: [
+    AppService,
+   {
+      provide: APP_GUARD,     // config do middleware do jwt   , ta no provider para toda aplicação  
+      useClass: AuthGuard,  //todas as rotas estão protegidar por conta do jwt , por isso coloquei o public na rota
     },
-    
+   
   
   ],
 })

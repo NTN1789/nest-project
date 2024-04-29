@@ -8,11 +8,11 @@ import { Public } from './constants/constants';
 export class AuthController {
   constructor(private authService: AuthService) {}
 
-  @Public()
+  @Public() // está publico pq mesmo se a pessoa , não tiver um jwt válido , pode acessar a rota
   @HttpCode(HttpStatus.OK)
   @Post('login')
   async signIn(@Body() auth: AuthDto) {
-    return await this.authService.signIn(auth.email.toString());
+    return await this.authService.signIn(auth.email.toString());   //so fazer login 
   }
 
   @UseGuards(AuthGuard)

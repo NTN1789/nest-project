@@ -47,6 +47,9 @@ import {
       }
       return true;
     }
+
+
+    // ao executar o projeto a primeira classe que é ativada lá no App.module é o  canActivate para verificar o token 
   
     private extractTokenFromHeader(request: Request): string | undefined {
       const [type, token] = request.headers.authorization?.split(' ') ?? [];

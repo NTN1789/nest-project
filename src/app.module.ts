@@ -12,11 +12,10 @@ import { AppCacheModule } from './cache/cache.module';
 @Module({
   imports: [
     TaskModule ,
+    MongooseModule.forRoot('mongodb://localhost:27017/nest'),
     UsersModule,
-     MongooseModule.forRoot('mongodb://localhost:27017/nest'),
     AuthModule,
-    AppCacheModule
-    
+    AppCacheModule 
     ],
   controllers: [AppController],
   providers: [

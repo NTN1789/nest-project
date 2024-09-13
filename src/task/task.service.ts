@@ -29,6 +29,8 @@ export class TaskService {
 
   async findOne(id: string): Promise<Task> {
     return await this.taskModel.findOne<TaskDocument>({ id }).exec();
+
+    
   }
 
   async update(id: string, taskDto: TaskDto): Promise<any> {

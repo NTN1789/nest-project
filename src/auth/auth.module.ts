@@ -9,7 +9,7 @@ import { jwtConstants } from './constants/constants';
 @Module({
   imports: [
     AppCacheModule,
-    UsersModule,
+     UsersModule,
     JwtModule.register({
       global: true,
       secret: jwtConstants.secret,      // a secret está na pasta constants

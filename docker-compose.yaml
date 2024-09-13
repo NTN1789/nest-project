@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 services:  
   redis:
     image: redis
@@ -9,6 +9,4 @@ services:
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
-      - MONGO_URL=mongodb://mongo:27017/nest
-
-
+      - MONGO_URL=mongodb://mongoTask:27017/nest
